@@ -1,0 +1,19 @@
+{
+  "name": "credit-risk-frontend",
+  "version": "1.0.0",
+  "description": "Frontend for credit risk assessment system",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx http-server -p 3001 -c-1",
+    "dev": "npx http-server -p 3001 -c-1 -o"
+  },
+  "keywords": [
+    "credit-risk",
+    "frontend"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {}
+}
+
