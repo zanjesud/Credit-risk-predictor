@@ -1,7 +1,5 @@
 """
-ML Prediction Service - STANDALONE FIX
-Works WITHOUT needing preprocessors.pkl
-All preprocessing logic built-in
+ML Prediction Service - STANDALONE All preprocessing logic built-in
 """
 import os
 import pickle
@@ -26,7 +24,7 @@ class PredictService:
     _model_loaded = False
     _model_load_error = None
     
-    # These are the categorical columns from your training data
+    # Categorical columns used in the training data
     CATEGORICAL_COLS = [
         'cb_person_default_on_file',
         'loan_grade',
