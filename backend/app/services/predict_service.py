@@ -85,7 +85,7 @@ class PredictService:
         try:
             model_meta_path = os.getenv('MODEL_META_PATH', 
                 Config.MODEL_PATH if Config else 'mlruns/models/CreditRiskModel_BgC/version-1/meta.yaml')
-
+            print(f"model path taken {model_meta_path}")
             with open(model_meta_path, 'r') as meta_file:
                 meta_data = yaml.safe_load(meta_file)
                 storage_location = meta_data.get('storage_location')
@@ -251,30 +251,58 @@ class PredictService:
         
         # ========== STEP 5: Apply Scaling ==========
         print(f"\n5. FEATURE SCALING")
-        
+        # ========== STEP 5: Apply Scaling ==========
+        print(f"\n5. FEATURE SCALING")
+
         df_scaled = df_encoded.copy()
+
+        # Use FIXED training statistics (you need to save these from training)
+        training_stats = {
+            'person_age': {'mean': 27.73, 'std': 6.35},
+            'person_income': {'mean': 66074.0, 'std': 61995.0},
+            'person_emp_length': {'mean': 4.79, 'std': 4.14},
+            'loan_amnt': {'mean': 9589.0, 'std': 6248.0},
+            'loan_int_rate': {'mean': 11.01, 'std': 3.24},
+            'cb_person_cred_hist_length': {'mean': 5.80, 'std': 4.06},
+            'loan_percent_income': {'mean': 0.17, 'std': 0.10},
+            'loan_to_income_ratio': {'mean': 0.17, 'std': 0.10},
+            'loan_to_emp_length_ratio': {'mean': 0.0008, 'std': 0.0012},
+            'int_rate_to_loan_amt_ratio': {'mean': 0.0014, 'std': 0.0008}
+        }
+
+        cols_to_scale = [col for col in self.NUMERIC_COLS if col in df_scaled.columns and col != 'index']
+
+        for col in cols_to_scale:
+            if col in df_scaled.columns and col in training_stats:
+                stats = training_stats[col]
+                df_scaled[col] = (df_scaled[col] - stats['mean']) / stats['std']
+                print(f"   ✓ Scaled {col} using training stats")
+
+        print(f"   ✓ Applied StandardScaler to {len(cols_to_scale)} numeric columns")
+
+        # df_scaled = df_encoded.copy()
         
-        # Identify which columns are numeric and need scaling
-        cols_to_scale = [col for col in self.NUMERIC_COLS if col in df_scaled.columns]
+        # # Identify which columns are numeric and need scaling
+        # cols_to_scale = [col for col in self.NUMERIC_COLS if col in df_scaled.columns]
         
-        if cols_to_scale:
-            # Fit scalers on training data statistics
-            # For StandardScaler (mean=0, std=1)
-            scaler_normal = StandardScaler()
+        # if cols_to_scale:
+        #     # Fit scalers on training data statistics
+        #     # For StandardScaler (mean=0, std=1)
+        #     scaler_normal = StandardScaler()
             
-            for col in cols_to_scale:
-                if col in df_scaled.columns:
-                    # Simple normalization: (x - min) / (max - min) or (x - mean) / std
-                    col_data = df_scaled[[col]]
+        #     for col in cols_to_scale:
+        #         if col in df_scaled.columns:
+        #             # Simple normalization: (x - min) / (max - min) or (x - mean) / std
+        #             col_data = df_scaled[[col]]
                     
-                    # Use z-score normalization (StandardScaler approach)
-                    mean_val = col_data.values.mean()
-                    std_val = col_data.values.std()
+        #             # Use z-score normalization (StandardScaler approach)
+        #             mean_val = col_data.values.mean()
+        #             std_val = col_data.values.std()
                     
-                    if std_val > 0:
-                        df_scaled[col] = (col_data - mean_val) / std_val
+        #             if std_val > 0:
+        #                 df_scaled[col] = (col_data - mean_val) / std_val
             
-            print(f"   ✓ Applied StandardScaler to {len(cols_to_scale)} numeric columns")
+        #     print(f"   ✓ Applied StandardScaler to {len(cols_to_scale)} numeric columns")
         
         # ========== STEP 6: Feature Selection & Ordering ==========
         print(f"\n6. FINAL FEATURE SELECTION")
@@ -318,11 +346,13 @@ class PredictService:
         try:
             # Preprocess data
             processed_df = self.preprocess_data(data)
-            
+
             # Make prediction
             prediction = self._model.predict(processed_df)[0]
             prediction_proba = self._model.predict_proba(processed_df)[0]
             
+            print("Pediction ",prediction)
+            print("Prediction probability ",prediction_proba)
             # Calculate risk score
             risk_score = float(prediction_proba[1] if len(prediction_proba) > 1 else prediction_proba[0])
             

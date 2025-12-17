@@ -1,0 +1,140 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36" version="29.2.7">
+  <diagram name="Credit Risk Assessment Workflow" id="diagram1">
+    <mxGraphModel dx="1426" dy="777" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="#ffffff" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontStyle=1;fontColor=light-dark(#000000,#000000);" value="Credit Risk Assessment System Flow Diagram" vertex="1">
+          <mxGeometry height="40" width="570" x="300" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="start" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0f172a;strokeColor=#38bdf8;strokeWidth=2;fontColor=#f1f5f9;fontSize=12;fontStyle=1;gradientColor=default;" value="Sales Person Interface" vertex="1">
+          <mxGeometry height="60" width="150" x="50" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="input" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#0f172a;strokeColor=#38bdf8;strokeWidth=2;fontColor=#f1f5f9;fontSize=12;fontStyle=1;gradientColor=default;" value="Enter Customer ID" vertex="1">
+          <mxGeometry height="60" width="150" x="50" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow1" edge="1" parent="1" source="start" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#38bdf8;strokeWidth=2;endArrow=classic;endFill=1" target="input">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fetch" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#0f172a;strokeColor=#38bdf8;strokeWidth=2;fontColor=#f1f5f9;fontSize=12;fontStyle=1;gradientColor=default;" value="Fetch Customer Data&#xa;(from Database)" vertex="1">
+          <mxGeometry height="60" width="150" x="280" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow2" edge="1" parent="1" source="input" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor:#38bdf8;strokeWidth=2;endArrow=classic;endFill=1" target="fetch">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="preprocess" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#0f172a;strokeColor=#38bdf8;strokeWidth=2;fontColor=#f1f5f9;fontSize=12;fontStyle=1;gradientColor=default;" value="&lt;span&gt;Data Preprocessing&lt;br&gt;&amp;amp; Feature Engineering&lt;/span&gt;" vertex="1">
+          <mxGeometry height="60" width="150" x="510" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow3" edge="1" parent="1" source="fetch" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor:#38bdf8;strokeWidth=2;endArrow=classic;endFill=1" target="preprocess">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="model" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#0f172a;strokeColor=#38bdf8;strokeWidth=2;fontColor=#f1f5f9;fontSize=12;fontStyle=1;gradientColor=default;" value="ML Model Prediction&#xa;(RF, LightGBM, LogReg)" vertex="1">
+          <mxGeometry height="60" width="150" x="740" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow4" edge="1" parent="1" source="preprocess" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor:#38bdf8;strokeWidth=2;endArrow=classic;endFill=1" target="model">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="score" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#0f172a;strokeColor=#38bdf8;strokeWidth=2;fontColor=#f1f5f9;fontSize=12;fontStyle=1;gradientColor=default;" value="Risk Score to&#xa;Percentage" vertex="1">
+          <mxGeometry height="60" width="150" x="50" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow5" edge="1" parent="1" source="model" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor:#38bdf8;strokeWidth=2;endArrow=classic;endFill=1" target="score">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="815" y="210" />
+              <mxPoint x="125" y="210" />
+            </Array>
+            <mxPoint x="815" y="180" as="sourcePoint" />
+            <mxPoint x="125" y="240" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="decision" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#0f172a;strokeColor=#38bdf8;strokeWidth=2;fontColor=#f1f5f9;fontSize=12;fontStyle=1;gradientColor=default;" value="Classify Risk&#xa;Category" vertex="1">
+          <mxGeometry height="80" width="150" x="280" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow6" edge="1" parent="1" source="score" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor:#38bdf8;strokeWidth=2;endArrow=classic;endFill=1" target="decision">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lowrisk" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor:#065f46;strokeColor:#10b981;strokeWidth=2;fontColor:#86efac;fontSize=11;fontStyle=1" value="✓ APPROVE&#xa;(0-30%)" vertex="1">
+          <mxGeometry height="60" width="120" x="510" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow7" edge="1" parent="1" source="decision" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor:#10b981;strokeWidth=2;endArrow=classic;endFill=1;label=Low Risk" target="lowrisk">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="medrisk" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor:#92400e;strokeColor:#f59e0b;strokeWidth=2;fontColor=#fcd34d;fontSize=11;fontStyle=1" value="⚠ REVIEW&#xa;(30-70%)" vertex="1">
+          <mxGeometry height="60" width="120" x="680" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow8" edge="1" parent="1" source="decision" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor:#f59e0b;strokeWidth=2;endArrow=classic;endFill=1;label=Medium Risk" target="medrisk">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="355" y="340" />
+              <mxPoint x="740" y="340" />
+            </Array>
+            <mxPoint x="355" y="310" as="sourcePoint" />
+            <mxPoint x="740" y="310" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="highrisk" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#7f1d1d;strokeColor:#ef4444;strokeWidth=2;fontColor:#fca5a5;fontSize=11;fontStyle=1" value="✗ REJECT&#xa;(70-100%)" vertex="1">
+          <mxGeometry height="60" width="120" x="850" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow9" edge="1" parent="1" source="decision" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor:#ef4444;strokeWidth=2;endArrow=classic;endFill=1;label=High Risk" target="highrisk">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="430" y="370" />
+              <mxPoint x="910" y="370" />
+            </Array>
+            <mxPoint x="430" y="270" as="sourcePoint" />
+            <mxPoint x="850" y="270" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="explain" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0f172a;strokeColor=#38bdf8;strokeWidth=2;fontColor=#f1f5f9;fontSize=12;fontStyle=1;gradientColor=default;" value="Feature Importance&#xa;(SHAP/LIME)&#xa;- Top Risk Factors" vertex="1">
+          <mxGeometry height="80" width="150" x="280" y="370" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow10" edge="1" parent="1" source="lowrisk" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor:#38bdf8;strokeWidth=1.5;endArrow=classic;endFill=1" target="explain">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="570" y="310" />
+              <mxPoint x="355" y="310" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow11" edge="1" parent="1" source="medrisk" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor:#38bdf8;strokeWidth=1.5;endArrow=classic;endFill=1" target="explain">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="740" y="310" />
+              <mxPoint x="355" y="310" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow12" edge="1" parent="1" source="highrisk" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor:#38bdf8;strokeWidth=1.5;endArrow=classic;endFill=1" target="explain">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="910" y="310" />
+              <mxPoint x="355" y="310" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="display" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0f172a;strokeColor=#38bdf8;strokeWidth=2;fontColor=#f1f5f9;fontSize=12;fontStyle=1;gradientColor=default;" value="Display Results&#xa;&amp; Recommendation&#xa;to Sales Team" vertex="1">
+          <mxGeometry height="80" width="150" x="510" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow13" edge="1" parent="1" source="explain" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor:#38bdf8;strokeWidth=2;endArrow=classic;endFill=1" target="display">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="355" y="470" />
+              <mxPoint x="585" y="470" />
+            </Array>
+            <mxPoint x="355" y="450" as="sourcePoint" />
+            <mxPoint x="585" y="500" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="end" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0f172a;strokeColor=#38bdf8;strokeWidth=2;fontColor=#f1f5f9;fontSize=12;fontStyle=1;gradientColor=default;" value="Sales Person&#xa;Makes Lending Decision" vertex="1">
+          <mxGeometry height="80" width="150" x="510" y="630" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow14" edge="1" parent="1" source="display" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor:#38bdf8;strokeWidth=2;endArrow=classic;endFill=1" target="end">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="note" parent="1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontColor=#94a3b8;fontSize=10;fontStyle=2" value="Internal Tool - Sales/Business Use Only" vertex="1">
+          <mxGeometry height="20" width="250" x="320" y="10" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

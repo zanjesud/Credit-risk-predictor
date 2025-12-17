@@ -1,0 +1,202 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36" version="29.2.7">
+  <diagram name="Credit Risk Architecture" id="credit-risk-arch">
+    <mxGraphModel dx="1426" dy="777" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontStyle=1;fontColor=light-dark(#000000,#000000);" value="Credit Risk Assessment System Architecture" vertex="1">
+          <mxGeometry height="40" width="570" x="300" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="frontend-container" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;verticalAlign=top;arcSize=5;" value="" vertex="1">
+          <mxGeometry height="220" width="300" x="80" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="frontend-title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;" value="&lt;b&gt;Frontend Layer&lt;/b&gt;" vertex="1">
+          <mxGeometry height="30" width="300" x="80" y="125" as="geometry" />
+        </mxCell>
+        <mxCell id="frontend-main" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" value="HTML/CSS/JavaScript&#xa;Port: 3001" vertex="1">
+          <mxGeometry height="50" width="200" x="130" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="components" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" value="components/" vertex="1">
+          <mxGeometry height="40" width="80" x="100" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="pages" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" value="pages/" vertex="1">
+          <mxGeometry height="40" width="80" x="190" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="services-fe" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" value="services/" vertex="1">
+          <mxGeometry height="40" width="80" x="280" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="styles" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" value="styles/" vertex="1">
+          <mxGeometry height="40" width="80" x="100" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="utils-fe" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" value="utils/" vertex="1">
+          <mxGeometry height="40" width="80" x="190" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="backend-container" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;verticalAlign=top;arcSize=5;" value="" vertex="1">
+          <mxGeometry height="340" width="380" x="480" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="backend-title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;" value="&lt;b&gt;Backend Layer&lt;/b&gt;" vertex="1">
+          <mxGeometry height="30" width="380" x="480" y="125" as="geometry" />
+        </mxCell>
+        <mxCell id="backend-main" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" value="Python Flask Application&#xa;Port: 5000" vertex="1">
+          <mxGeometry height="50" width="240" x="550" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="api-component" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;align=left;verticalAlign=top;" value="&lt;b&gt;API Layer&lt;/b&gt;&#xa;RESTful Endpoints&#xa;- GET /records&#xa;- GET /records/:id&#xa;- POST /records&#xa;- Data Validation" vertex="1">
+          <mxGeometry height="110" width="160" x="500" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="ml-component" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;align=left;verticalAlign=top;" value="&lt;b&gt;ML Service&lt;/b&gt;&#xa;- Model Loading&#xa;- Preprocessing&#xa;- Risk Prediction&#xa;- Feature Engineering" vertex="1">
+          <mxGeometry height="110" width="160" x="680" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="api-dir" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" value="api/" vertex="1">
+          <mxGeometry height="35" width="70" x="500" y="370" as="geometry" />
+        </mxCell>
+        <mxCell id="models-dir" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" value="models/" vertex="1">
+          <mxGeometry height="35" width="70" x="580" y="370" as="geometry" />
+        </mxCell>
+        <mxCell id="services-dir" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" value="services/" vertex="1">
+          <mxGeometry height="35" width="70" x="660" y="370" as="geometry" />
+        </mxCell>
+        <mxCell id="config-dir" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" value="config/" vertex="1">
+          <mxGeometry height="35" width="70" x="740" y="370" as="geometry" />
+        </mxCell>
+        <mxCell id="utils-dir" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" value="utils/" vertex="1">
+          <mxGeometry height="35" width="70" x="500" y="415" as="geometry" />
+        </mxCell>
+        <mxCell id="database-container" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;verticalAlign=top;arcSize=5;" value="" vertex="1">
+          <mxGeometry height="140" width="380" x="480" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="database-title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;" value="&lt;b&gt;Database Layer&lt;/b&gt;" vertex="1">
+          <mxGeometry height="30" width="380" x="480" y="505" as="geometry" />
+        </mxCell>
+        <mxCell id="database" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#d5e8d4;strokeColor=#82b366;" value="SQLite Database&#xa;credit_risk.db" vertex="1">
+          <mxGeometry height="70" width="140" x="600" y="550" as="geometry" />
+        </mxCell>
+        <mxCell id="ml-models-container" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fad7ac;strokeColor=#b46504;verticalAlign=top;arcSize=5;" value="" vertex="1">
+          <mxGeometry height="220" width="220" x="910" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="ml-models-title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;" value="&lt;b&gt;ML Models&lt;/b&gt;" vertex="1">
+          <mxGeometry height="30" width="220" x="910" y="125" as="geometry" />
+        </mxCell>
+        <mxCell id="jupyter" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="Jupyter Notebook&#xa;credit-risk-assessment.ipynb" vertex="1">
+          <mxGeometry height="50" width="180" x="930" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="model-files" parent="1" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#ffe6cc;strokeColor=#d79b00;" value="Trained Models&lt;br&gt;(.pkl files)" vertex="1">
+          <mxGeometry height="80" width="80" x="930" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="mlflow" parent="1" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#ffe6cc;strokeColor=#d79b00;" value="MLflow Models" vertex="1">
+          <mxGeometry height="80" width="80" x="1030" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="shared-container" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;verticalAlign=top;arcSize=5;" value="" vertex="1">
+          <mxGeometry height="100" width="300" x="80" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="shared-title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;" value="&lt;b&gt;Shared Resources&lt;/b&gt;" vertex="1">
+          <mxGeometry height="30" width="300" x="80" y="405" as="geometry" />
+        </mxCell>
+        <mxCell id="constants" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" value="constants/index.js&#xa;Risk Categories, Loan Grades,&#xa;Employment Length, etc." vertex="1">
+          <mxGeometry height="45" width="260" x="100" y="445" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow1" edge="1" parent="1" source="frontend-main" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2;" target="backend-main" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="400" y="250" as="sourcePoint" />
+            <mxPoint x="450" y="200" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow1-label" connectable="0" parent="arrow1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#0066CC;" value="HTTP/REST API" vertex="1">
+          <mxGeometry relative="1" x="-0.1" y="1" as="geometry">
+            <mxPoint x="5" y="-9" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow2" edge="1" parent="1" source="api-component" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;strokeWidth=2;" target="database" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="560" y="450" as="sourcePoint" />
+            <mxPoint x="610" y="400" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow2-label" connectable="0" parent="arrow2" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#009900;" value="SQL Queries" vertex="1">
+          <mxGeometry relative="1" x="-0.1" y="1" as="geometry">
+            <mxPoint x="-50" y="10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow3" edge="1" parent="1" source="ml-component" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;strokeWidth=2;dashed=1;" target="model-files" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="760" y="200" />
+              <mxPoint x="970" y="200" />
+            </Array>
+            <mxPoint x="720" y="380" as="sourcePoint" />
+            <mxPoint x="770" y="330" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow3-label" connectable="0" parent="arrow3" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#CC6600;" value="Load Models" vertex="1">
+          <mxGeometry relative="1" x="-0.1" y="1" as="geometry">
+            <mxPoint x="10" y="-9" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow4" edge="1" parent="1" source="api-component" style="endArrow=classic;startArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2;" target="ml-component" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="680" y="350" as="sourcePoint" />
+            <mxPoint x="730" y="300" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow4-label" connectable="0" parent="arrow4" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#CC0066;" value="Prediction Requests" vertex="1">
+          <mxGeometry relative="1" x="-0.1" y="1" as="geometry">
+            <mxPoint y="-9" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="legend-container" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;verticalAlign=top;arcSize=5;" value="" vertex="1">
+          <mxGeometry height="180" width="300" x="80" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;" value="&lt;b&gt;Legend&lt;/b&gt;" vertex="1">
+          <mxGeometry height="30" width="300" x="80" y="565" as="geometry" />
+        </mxCell>
+        <mxCell id="legend1" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="100" y="610" as="sourcePoint" />
+            <mxPoint x="150" y="610" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="legend1-text" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" value="HTTP Request/Response" vertex="1">
+          <mxGeometry height="30" width="200" x="160" y="595" as="geometry" />
+        </mxCell>
+        <mxCell id="legend2" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;dashed=1;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="100" y="640" as="sourcePoint" />
+            <mxPoint x="150" y="640" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="legend2-text" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" value="Model Loading/Access" vertex="1">
+          <mxGeometry height="30" width="200" x="160" y="625" as="geometry" />
+        </mxCell>
+        <mxCell id="legend3" edge="1" parent="1" style="endArrow=classic;startArrow=classic;html=1;rounded=0;strokeWidth=2;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="100" y="670" as="sourcePoint" />
+            <mxPoint x="150" y="670" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="legend3-text" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" value="Bidirectional Communication" vertex="1">
+          <mxGeometry height="30" width="200" x="160" y="655" as="geometry" />
+        </mxCell>
+        <mxCell id="legend4" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=8;fillColor=#d5e8d4;strokeColor=#82b366;" value="" vertex="1">
+          <mxGeometry height="30" width="40" x="100" y="695" as="geometry" />
+        </mxCell>
+        <mxCell id="legend4-text" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" value="Data Storage" vertex="1">
+          <mxGeometry height="30" width="200" x="160" y="695" as="geometry" />
+        </mxCell>
+        <mxCell id="dataflow-container" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;verticalAlign=top;arcSize=5;" value="" vertex="1">
+          <mxGeometry height="260" width="220" x="910" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="dataflow-title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;" value="&lt;b&gt;Data Flow Patterns&lt;/b&gt;" vertex="1">
+          <mxGeometry height="30" width="220" x="910" y="385" as="geometry" />
+        </mxCell>
+        <mxCell id="flow1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;align=left;" value="1. View Records:&#xa;Frontend → API → Database&#xa;→ Frontend" vertex="1">
+          <mxGeometry height="55" width="200" x="920" y="425" as="geometry" />
+        </mxCell>
+        <mxCell id="flow2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;align=left;" value="2. View with Risk:&#xa;Frontend → API → Database&#xa;→ ML Service → Frontend" vertex="1">
+          <mxGeometry height="60" width="200" x="920" y="490" as="geometry" />
+        </mxCell>
+        <mxCell id="flow3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;align=left;" value="3. Add Record(Future Scope):&lt;br&gt;Frontend → API&lt;br&gt;→ ML Service (predict)&lt;br&gt;→ Database (save)&lt;br&gt;→ Frontend" vertex="1">
+          <mxGeometry height="70" width="200" x="920" y="560" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

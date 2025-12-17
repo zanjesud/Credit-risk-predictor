@@ -36,6 +36,12 @@
   - View record details with risk assessment
   - Add new records
   - Real-time risk prediction display
+  - Organized structure:
+    - `components/`: Reusable UI components
+    - `pages/`: Page-level components
+    - `services/`: API interaction logic
+    - `utils/`: Helper functions
+    - `styles/`: CSS styles
 
 ### 2. Backend (Python Flask)
 - **Technology**: Flask, SQLite, scikit-learn, LightGBM
@@ -46,10 +52,24 @@
   - Database connection and queries
   - ML model loading and inference
   - Data validation and error handling
+  - Organized structure:
+    - `api/`: API endpoints
+    - `models/`: Database models
+    - `services/`: Business logic (ML service)
+    - `config/`: Configuration files
+    - `utils/`: Utility functions
 
 ### 3. Database (SQLite)
 - **Purpose**: Store credit risk records
-- **Schema**: See `database/README.md`
+- **Schema**: See `database/scripts/seed.py` for initialization
+- **Structure**:
+  - `scripts/`: Database initialization scripts
+  - `migrations/`: Database migration files
+
+### 4. Shared
+- **Purpose**: Shared constants and utilities
+- **Structure**:
+  - `constants/index.js`: Centralized constants for risk categories, loan grades, etc.
 
 ## Data Flow
 
