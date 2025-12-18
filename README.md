@@ -1,12 +1,22 @@
-# Credit Risk Assessment Project
+# 🚀 Credit Risk Assessment Project
 
 ## Overview
-This project aims to predict credit risk using machine learning models. It includes a backend for model inference, a frontend for user interaction, and a structured database for data storage.
+This project leverages machine learning to predict credit risk, offering a comprehensive solution with a robust backend for model inference, an interactive frontend for user engagement, and a structured database for data management. Our goal is to provide an accurate and efficient tool for assessing creditworthiness.
+
+## ✨ Features
+- **Intelligent Backend**: A Python-based API designed for high-performance credit risk predictions using advanced machine learning models.
+- **Intuitive Frontend**: A modern React-based user interface, providing a seamless and responsive experience for interacting with the credit risk assessment system.
+- **Advanced Machine Learning**: Utilizes pre-trained, state-of-the-art models to deliver precise credit risk predictions.
+- **Structured Data Management**: A well-organized database for securely storing credit risk data, model metadata, and historical predictions.
+
+## 🛠️ Technologies Used
+- **Backend**: Python (e.g., Flask, FastAPI), Scikit-learn, Pandas, NumPy
+- **Frontend**: React, JavaScript/TypeScript, HTML, CSS
+- **Database**: (e.g., PostgreSQL, SQLite, MySQL)
+- **Machine Learning**: Jupyter Notebooks, MLflow (for experiment tracking)
 
 ## Project Structure
 ```
-chart.html
-credit_risk_dataset.csv
 credit-risk-assesment.ipynb
 backend/
     app.py
@@ -72,7 +82,7 @@ shared/
    ```
 
 ## Usage
-- Access the frontend at `http://localhost:3000`.
+- Access the frontend at `http://localhost:3001`.
 - Use the backend API at `http://localhost:5000`.
 
 ## Notebooks

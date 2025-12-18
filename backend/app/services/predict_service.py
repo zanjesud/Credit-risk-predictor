@@ -10,6 +10,7 @@ import warnings
 warnings.filterwarnings('ignore')
 import yaml
 from sklearn.preprocessing import OneHotEncoder, MinMaxScaler, StandardScaler, RobustScaler
+import joblib
 
 try:
     from app.config.settings import Config
@@ -21,6 +22,7 @@ class PredictService:
     
     _instance = None
     _model = None
+    _scaler = None
     _model_loaded = False
     _model_load_error = None
     
@@ -103,6 +105,12 @@ class PredictService:
                 print(f"✓ Model loaded successfully from {model_file}")
             else:
                 raise FileNotFoundError(f"Model file not found at {model_file}")
+            
+            # Load scaler
+            scaler_model_path = os.getenv('SCALER_MODEL_PATH', 
+                Config.SCALER_MODEL_PATH if Config else 'app/models/scaler.pkl')
+            self._scaler = joblib.load(scaler_model_path)
+            print(f"✓ Scaler loaded successfully from {scaler_model_path}")
 
         except Exception as e:
             self._model_load_error = str(e)
@@ -206,7 +214,7 @@ class PredictService:
                 else:
                     df[col].fillna('unknown', inplace=True)
                     print(f"   ✓ {col}: filled with 'unknown'")
-        
+               
         # ========== STEP 4: One-Hot Encoding ==========
         print(f"\n4. ONE-HOT ENCODING")
         
@@ -250,59 +258,59 @@ class PredictService:
             raise
         
         # ========== STEP 5: Apply Scaling ==========
-        print(f"\n5. FEATURE SCALING")
-        # ========== STEP 5: Apply Scaling ==========
-        print(f"\n5. FEATURE SCALING")
+        print(f"\n5. FEATURE SCALING")       
 
         df_scaled = df_encoded.copy()
 
         # Use FIXED training statistics (you need to save these from training)
-        training_stats = {
-            'person_age': {'mean': 27.73, 'std': 6.35},
-            'person_income': {'mean': 66074.0, 'std': 61995.0},
-            'person_emp_length': {'mean': 4.79, 'std': 4.14},
-            'loan_amnt': {'mean': 9589.0, 'std': 6248.0},
-            'loan_int_rate': {'mean': 11.01, 'std': 3.24},
-            'cb_person_cred_hist_length': {'mean': 5.80, 'std': 4.06},
-            'loan_percent_income': {'mean': 0.17, 'std': 0.10},
-            'loan_to_income_ratio': {'mean': 0.17, 'std': 0.10},
-            'loan_to_emp_length_ratio': {'mean': 0.0008, 'std': 0.0012},
-            'int_rate_to_loan_amt_ratio': {'mean': 0.0014, 'std': 0.0008}
-        }
+        # training_stats = {
+        #     'person_age': {'mean': 27.73, 'std': 6.35},
+        #     'person_income': {'mean': 66074.0, 'std': 61995.0},
+        #     'person_emp_length': {'mean': 4.79, 'std': 4.14},
+        #     'loan_amnt': {'mean': 9589.0, 'std': 6248.0},
+        #     'loan_int_rate': {'mean': 11.01, 'std': 3.24},
+        #     'cb_person_cred_hist_length': {'mean': 5.80, 'std': 4.06},
+        #     'loan_percent_income': {'mean': 0.17, 'std': 0.10},
+        #     'loan_to_income_ratio': {'mean': 0.17, 'std': 0.10},
+        #     'loan_to_emp_length_ratio': {'mean': 0.0008, 'std': 0.0012},
+        #     'int_rate_to_loan_amt_ratio': {'mean': 0.0014, 'std': 0.0008}
+        # }
 
         cols_to_scale = [col for col in self.NUMERIC_COLS if col in df_scaled.columns and col != 'index']
 
-        for col in cols_to_scale:
-            if col in df_scaled.columns and col in training_stats:
-                stats = training_stats[col]
-                df_scaled[col] = (df_scaled[col] - stats['mean']) / stats['std']
-                print(f"   ✓ Scaled {col} using training stats")
+        # for col in cols_to_scale:
+        #     if col in df_scaled.columns and col in training_stats:
+        #         stats = training_stats[col]
+        #         df_scaled[col] = (df_scaled[col] - stats['mean']) / stats['std']
+        #         print(f"   ✓ Scaled {col} using training stats")
 
-        print(f"   ✓ Applied StandardScaler to {len(cols_to_scale)} numeric columns")
+        # # Apply the pre-loaded scaler
+        # CORRECT order - NO 'index'
+        SCALER_NUMERIC_COLS = [
+            'person_income',
+            'person_age',
+            
+            'person_emp_length',
+            'loan_amnt',
+            'loan_int_rate',
+            'cb_person_cred_hist_length',
+            'loan_percent_income',
+            'loan_to_emp_length_ratio',
+            'int_rate_to_loan_amt_ratio'
+        ]
+    #     ['person_income','person_age','person_emp_length', 'loan_amnt',
+    #      'loan_int_rate','cb_person_cred_hist_length',
+    #      'loan_percent_income', 
+    #      'loan_to_income_ratio','loan_to_emp_length_ratio',
+    #    'int_rate_to_loan_amt_ratio']
 
-        # df_scaled = df_encoded.copy()
-        
-        # # Identify which columns are numeric and need scaling
-        # cols_to_scale = [col for col in self.NUMERIC_COLS if col in df_scaled.columns]
-        
-        # if cols_to_scale:
-        #     # Fit scalers on training data statistics
-        #     # For StandardScaler (mean=0, std=1)
-        #     scaler_normal = StandardScaler()
-            
-        #     for col in cols_to_scale:
-        #         if col in df_scaled.columns:
-        #             # Simple normalization: (x - min) / (max - min) or (x - mean) / std
-        #             col_data = df_scaled[[col]]
-                    
-        #             # Use z-score normalization (StandardScaler approach)
-        #             mean_val = col_data.values.mean()
-        #             std_val = col_data.values.std()
-                    
-        #             if std_val > 0:
-        #                 df_scaled[col] = (col_data - mean_val) / std_val
-            
-        #     print(f"   ✓ Applied StandardScaler to {len(cols_to_scale)} numeric columns")
+
+        if self._scaler is not None:
+            df_scaled[SCALER_NUMERIC_COLS] = self._scaler.transform(df_scaled[SCALER_NUMERIC_COLS])
+            print(f"   ✓ Applied StandardScaler to {len(SCALER_NUMERIC_COLS)} numeric columns")
+        else:
+            print(f"   ✗ Scaler not loaded, skipping scaling")
+
         
         # ========== STEP 6: Feature Selection & Ordering ==========
         print(f"\n6. FINAL FEATURE SELECTION")

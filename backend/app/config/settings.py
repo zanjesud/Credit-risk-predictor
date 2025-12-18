@@ -18,5 +18,7 @@ class Config:
     
     # ML Model
     # Allow MODEL_PATH to be a registered model name (e.g. 'CreditRiskModel_BgC')
-    MODEL_PATH = os.getenv('MODEL_PATH', os.path.abspath(os.path.join(os.path.dirname(__file__), '../../../mlruns/models/CreditRiskModel_xgb/version-1/meta.yaml')))
+    MODEL_PATH = os.getenv('MODEL_PATH', os.path.abspath(os.path.join(os.path.dirname(__file__), '../../../mlruns/models/CreditRiskModel_RF/version-11/meta.yaml')))
+    SCALER_MODEL_PATH = os.getenv('SCALER_MODEL_PATH', os.path.abspath(os.path.join(os.path.dirname(__file__), '../models/scaler.pkl')))
+    # E:\BITS\Dissertation\Credit risk predictor\mlruns\models\CreditRiskModel_KN\version-9\meta.yaml
 
