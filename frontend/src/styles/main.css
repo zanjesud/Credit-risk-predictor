@@ -6,7 +6,7 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: #f2f2f2;
     min-height: 100vh;
     padding: 10px;
 }
@@ -19,7 +19,11 @@ body {
 header {
     text-align: center;
     color: white;
+    background-color: #db0011;
+    padding: 20px;
+    border-radius: 8px;
     margin-bottom: 15px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
 header h1 {
@@ -90,8 +94,8 @@ main {
 
 .input-group input:focus {
     outline: none;
-    border-color: #667eea;
-    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    border-color: #db0011;
+    box-shadow: 0 0 0 3px rgba(219, 0, 17, 0.1);
 }
 
 .btn-search {
@@ -105,7 +109,7 @@ main {
 
 .btn-search:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+    box-shadow: 0 5px 15px rgba(219, 0, 17, 0.3);
 }
 
 /* Results Section */
@@ -147,7 +151,7 @@ main {
 }
 
 .customer-id-badge {
-    background: #667eea;
+    background: #db0011;
     color: white;
     padding: 8px 16px;
     border-radius: 20px;
@@ -169,7 +173,7 @@ main {
 }
 
 .info-section h3 {
-    color: #667eea;
+    color: #db0011;
     margin-bottom: 10px;
     font-size: 1.1em;
     display: flex;
@@ -234,8 +238,8 @@ main {
 
 /* Risk Section */
 .risk-section {
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-    border: 2px solid #667eea;
+    background: white;
+    border: 2px solid #db0011;
 }
 
 .risk-bar-container-large {
@@ -268,7 +272,7 @@ main {
     padding: 10px;
     background: rgba(255, 255, 255, 0.7);
     border-radius: 8px;
-    border-left: 4px solid #667eea;
+    border-left: 4px solid #db0011;
 }
 
 .interpretation-text {
@@ -319,21 +323,21 @@ main {
 }
 
 .btn-primary {
-    background: #667eea;
+    background: #db0011;
     color: white;
 }
 
 .btn-primary:hover {
-    background: #5568d3;
+    background: #b3000e;
 }
 
 .btn-secondary {
-    background: #764ba2;
+    background: #333333;
     color: white;
 }
 
 .btn-secondary:hover {
-    background: #634085;
+    background: #000000;
 }
 
 .records-list {
@@ -357,7 +361,7 @@ main {
 }
 
 .record-card h3 {
-    color: #667eea;
+    color: #db0011;
     margin-bottom: 10px;
 }
 
@@ -436,7 +440,7 @@ main {
 
 .record-detail label {
     font-weight: bold;
-    color: #667eea;
+    color: #db0011;
 }
 
 form {
@@ -466,7 +470,7 @@ form {
 .loading {
     text-align: center;
     padding: 20px;
-    color: #667eea;
+    color: #db0011;
 }
 
 .error {
@@ -591,6 +595,6 @@ form {
 }
 
 .record-card:hover {
-    border-color: #667eea;
-    box-shadow: 0 5px 20px rgba(102, 126, 234, 0.2);
+    border-color: #db0011;
+    box-shadow: 0 5px 20px rgba(219, 0, 17, 0.2);
 }
