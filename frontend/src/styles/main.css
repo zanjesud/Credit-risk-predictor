@@ -8,7 +8,7 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     min-height: 100vh;
-    padding: 20px;
+    padding: 10px;
 }
 
 .container {
@@ -19,23 +19,23 @@ body {
 header {
     text-align: center;
     color: white;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
 }
 
 header h1 {
-    font-size: 2.5em;
-    margin-bottom: 10px;
+    font-size: 1.8em;
+    margin-bottom: 5px;
 }
 
 header p {
-    font-size: 1.2em;
+    font-size: 1em;
     opacity: 0.9;
 }
 
 main {
     background: white;
     border-radius: 10px;
-    padding: 30px;
+    padding: 20px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
@@ -46,18 +46,18 @@ main {
 
 .search-container {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
 }
 
 .search-container h2 {
     color: #333;
-    margin-bottom: 10px;
-    font-size: 1.8em;
+    margin-bottom: 5px;
+    font-size: 1.4em;
 }
 
 .search-subtitle {
     color: #666;
-    margin-bottom: 25px;
+    margin-bottom: 15px;
     font-size: 1em;
 }
 
@@ -80,8 +80,8 @@ main {
 }
 
 .input-group input {
-    padding: 15px;
-    font-size: 1.1em;
+    padding: 10px;
+    font-size: 1em;
     border: 2px solid #e0e0e0;
     border-radius: 8px;
     transition: all 0.3s;
@@ -95,10 +95,10 @@ main {
 }
 
 .btn-search {
-    padding: 15px 30px;
-    font-size: 1.1em;
+    padding: 10px 25px;
+    font-size: 1em;
     font-weight: 600;
-    margin-top: 10px;
+    margin-top: 5px;
     width: 100%;
     max-width: 200px;
 }
@@ -110,7 +110,7 @@ main {
 
 /* Results Section */
 .results-section {
-    margin-top: 40px;
+    margin-top: 20px;
     animation: fadeIn 0.5s ease-in;
 }
 
@@ -128,7 +128,7 @@ main {
 .result-card {
     background: #f9f9f9;
     border-radius: 12px;
-    padding: 30px;
+    padding: 20px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
@@ -136,8 +136,8 @@ main {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 30px;
-    padding-bottom: 20px;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
     border-bottom: 2px solid #e0e0e0;
 }
 
@@ -158,20 +158,20 @@ main {
 .result-content {
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 15px;
 }
 
 .info-section {
     background: white;
-    padding: 25px;
+    padding: 15px;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .info-section h3 {
     color: #667eea;
-    margin-bottom: 20px;
-    font-size: 1.3em;
+    margin-bottom: 10px;
+    font-size: 1.1em;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -179,15 +179,15 @@ main {
 
 .info-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
 }
 
 .info-item {
     display: flex;
     flex-direction: column;
     gap: 5px;
-    padding: 15px;
+    padding: 10px;
     background: #f9f9f9;
     border-radius: 6px;
     transition: all 0.3s;
@@ -207,7 +207,7 @@ main {
 }
 
 .info-value {
-    font-size: 1.1em;
+    font-size: 1em;
     color: #333;
     font-weight: 600;
 }
@@ -239,21 +239,21 @@ main {
 }
 
 .risk-bar-container-large {
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 .risk-bar-container-large .risk-bar-wrapper {
-    height: 50px;
+    height: 35px;
 }
 
 .risk-percentage-large {
-    font-size: 2em;
+    font-size: 1.5em;
     font-weight: bold;
 }
 
 .risk-category-text-large {
-    margin-top: 15px;
-    font-size: 1.2em;
+    margin-top: 10px;
+    font-size: 1.1em;
     text-align: center;
 }
 
@@ -264,8 +264,8 @@ main {
 }
 
 .risk-interpretation {
-    margin-top: 20px;
-    padding: 15px;
+    margin-top: 15px;
+    padding: 10px;
     background: rgba(255, 255, 255, 0.7);
     border-radius: 8px;
     border-left: 4px solid #667eea;
@@ -594,4 +594,3 @@ form {
     border-color: #667eea;
     box-shadow: 0 5px 20px rgba(102, 126, 234, 0.2);
 }
-

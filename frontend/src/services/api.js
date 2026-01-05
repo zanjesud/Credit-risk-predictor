@@ -40,10 +40,15 @@ const api = {
     
     // Get record by customer ID
     getRecordById: (customerId) => apiRequest(`${API_CONFIG.ENDPOINTS.RECORDS}/${customerId}`),
+
+    // Predict credit risk
+    predict: (data) => apiRequest(API_CONFIG.ENDPOINTS.PREDICT, {
+        method: 'POST',
+        body: JSON.stringify(data)
+    }),
 };
 
 // Export for use in other modules
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = api;
 }
-

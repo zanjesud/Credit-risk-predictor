@@ -25,6 +25,15 @@ class RecordService {
         }
     }
 
+    async predict(data) {
+        try {
+            const result = await this.api.predict(data);
+            return result;
+        } catch (error) {
+            console.error('Error predicting risk:', error);
+            throw error;
+        }
+    }
 
     formatRecordForDisplay(record) {
         return {
@@ -68,4 +77,3 @@ class RecordService {
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = RecordService;
 }
-
