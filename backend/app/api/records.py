@@ -4,10 +4,12 @@ Records API endpoints - Read Only
 from flask import Blueprint, jsonify
 from app.models.record_model import RecordModel
 from app.services.predict_service import PredictService
+from app.services.shap_service import ShapService
 
 records_bp = Blueprint('records', __name__)
 record_model = RecordModel()
 predict_service = PredictService()
+shap_service = ShapService()
 
 # @records_bp.route('', methods=['GET'])
 # def get_all_records():
@@ -73,6 +75,13 @@ def get_record_by_id(customer_id):
                 record['risk_prediction'] = prediction
                 record['risk_score'] = prediction.get('risk_score')
                 record['risk_category'] = prediction.get('risk_category')
+                
+                # Get SHAP explanation
+                try:
+                    shap_explanation = shap_service.explain(record)
+                    record['shap_explanation'] = shap_explanation
+                except Exception as se:
+                    print(f"Warning: Could not get SHAP explanation: {se}")
         except Exception as e:
             print(f"Warning: Could not get prediction: {e}")
             # Use existing risk data if available
@@ -86,4 +95,3 @@ def get_record_by_id(customer_id):
         return jsonify(record), 200
     except Exception as e:
         return jsonify({'error': str(e)}), 500
-

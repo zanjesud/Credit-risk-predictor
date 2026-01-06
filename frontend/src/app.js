@@ -60,6 +60,7 @@ const app = {
         const riskClass = recordService.getRiskCategoryClass(formatted.riskCategory);
         const riskPercentage = formatted.riskScore ? (formatted.riskScore * 100).toFixed(1) : 0;
         const barClass = recordService.getRiskBarClass(formatted.riskCategory);
+        const shapHtml = this.getShapExplanationHTML(record.shap_explanation);
         
         // Access raw record for additional fields
         const creditHistoryLength = record.cb_person_cred_hist_length || 'N/A';
@@ -166,6 +167,7 @@ const app = {
                                 <div class="risk-interpretation">
                                     ${this.getRiskInterpretation(formatted.riskCategory, riskPercentage)}
                                 </div>
+                                ${shapHtml}
                             </div>
                         </div>
                     ` : ''}
@@ -200,6 +202,38 @@ const app = {
             'High': `This customer has a high risk of default (${percentage}%). Caution is advised before approving the loan.`
         };
         return `<p class="interpretation-text">${interpretations[category] || `Risk assessment: ${percentage}% default probability.`}</p>`;
+    },
+
+    getShapExplanationHTML(explanations) {
+        if (!explanations || !Array.isArray(explanations) || explanations.length === 0) {
+            return '';
+        }
+
+        // Show all factors in a grid layout (5 per line)
+        const items = explanations.map(item => {
+            const isIncrease = item.direction === 'increase';
+            const color = isIncrease ? '#d32f2f' : '#2e7d32';
+            const arrow = isIncrease ? '▲' : '▼';
+            
+            // Format feature name for better readability
+            let featureName = item.feature.replace(/_/g, ' ');
+            
+            return `
+                <div title="Impact: ${item.impact.toFixed(4)}" style="display: flex; align-items: center; justify-content: space-between; background: #f8f9fa; border: 1px solid #e9ecef; border-radius: 8px; padding: 8px; font-size: 0.8em; cursor: help; overflow: hidden;">
+                    <span style="text-transform: capitalize; margin-right: 5px; color: #495057; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${featureName}</span>
+                    <span style="color: ${color}; font-weight: bold;">${arrow}</span>
+                </div>
+            `;
+        }).join('');
+
+        return `
+            <div style="margin-top: 20px; border-top: 1px solid #eee; padding-top: 15px;">
+                <h4 style="margin-bottom: 10px; color: #333; font-size: 1em;">🔍 Key Risk Factors</h4>
+                <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px;">
+                    ${items}
+                </div>
+            </div>
+        `;
     }
 };
 
@@ -210,4 +244,3 @@ window.app = app;
 document.addEventListener('DOMContentLoaded', () => {
     app.init();
 });
-

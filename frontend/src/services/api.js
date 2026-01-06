@@ -2,8 +2,8 @@
 const API_CONFIG = {
     BASE_URL: 'http://localhost:5000/api',
     ENDPOINTS: {
-        RECORDS: '/records',
-        PREDICT: '/predict'
+        RECORDS: '/records'
+        // PREDICT: '/predict'
     }
 };
 
@@ -36,16 +36,16 @@ async function apiRequest(endpoint, options = {}) {
 // API methods - Read Only
 const api = {
     // Get all records
-    getAllRecords: () => apiRequest(API_CONFIG.ENDPOINTS.RECORDS),
+    // getAllRecords: () => apiRequest(API_CONFIG.ENDPOINTS.RECORDS),
     
     // Get record by customer ID
     getRecordById: (customerId) => apiRequest(`${API_CONFIG.ENDPOINTS.RECORDS}/${customerId}`),
 
     // Predict credit risk
-    predict: (data) => apiRequest(API_CONFIG.ENDPOINTS.PREDICT, {
-        method: 'POST',
-        body: JSON.stringify(data)
-    }),
+    // predict: (data) => apiRequest(API_CONFIG.ENDPOINTS.PREDICT, {
+    //     method: 'POST',
+    //     body: JSON.stringify(data)
+    // }),
 };
 
 // Export for use in other modules

@@ -5,15 +5,15 @@ class RecordService {
         this.api = window.api || api; // Use global api if available
     }
 
-    async getAllRecords() {
-        try {
-            const records = await this.api.getAllRecords();
-            return records;
-        } catch (error) {
-            console.error('Error fetching records:', error);
-            throw error;
-        }
-    }
+    // async getAllRecords() {
+    //     try {
+    //         const records = await this.api.getAllRecords();
+    //         return records;
+    //     } catch (error) {
+    //         console.error('Error fetching records:', error);
+    //         throw error;
+    //     }
+    // }
 
     async getRecordById(id) {
         try {
@@ -25,15 +25,15 @@ class RecordService {
         }
     }
 
-    async predict(data) {
-        try {
-            const result = await this.api.predict(data);
-            return result;
-        } catch (error) {
-            console.error('Error predicting risk:', error);
-            throw error;
-        }
-    }
+    // async predict(data) {
+    //     try {
+    //         const result = await this.api.predict(data);
+    //         return result;
+    //     } catch (error) {
+    //         console.error('Error predicting risk:', error);
+    //         throw error;
+    //     }
+    // }
 
     formatRecordForDisplay(record) {
         return {
