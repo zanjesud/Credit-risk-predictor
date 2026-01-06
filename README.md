@@ -10,10 +10,10 @@ This project leverages machine learning to predict credit risk, offering a compr
 - **Structured Data Management**: A well-organized database for securely storing credit risk data, model metadata, and historical predictions.
 
 ## 🛠️ Technologies Used
-- **Backend**: Python (e.g., Flask, FastAPI), Scikit-learn, Pandas, NumPy
-- **Frontend**: React, JavaScript/TypeScript, HTML, CSS
-- **Database**: (e.g., PostgreSQL, SQLite, MySQL)
-- **Machine Learning**: Jupyter Notebooks, MLflow (for experiment tracking)
+- **Backend**: Flask, Python, Scikit-learn, Pandas, NumPy, XGBoost, LightGBM, CatBoost
+- **Frontend**: Vanilla JavaScript, HTML, CSS (served via http-server)
+- **Database**: SQLite
+- **Machine Learning**: Jupyter Notebooks, MLflow (for experiment tracking and model management)
 
 ## Project Structure
 ```
@@ -27,31 +27,48 @@ backend/
         models/
         services/
         utils/
+    database/
+        credit_risk.db
+    tests/
 database/
-    migrations/
     scripts/
+        seed.py
+    credit_risk_dataset.csv
+    credit_risk.db
 docs/
+    ARCHITECTURE.md
+    [various documentation files]
 frontend/
     src/
+        assets/
         components/
         pages/
         services/
         styles/
+        utils/
+        app.js
+    index.html
+    package.json
 mlruns/
+    models/
+        [various ML model versions]
 shared/
+    constants/
+    types/
+catboost_info/
 ```
 
-## Features
-- **Backend**: Python-based API for predictions.
-- **Frontend**: React-based user interface.
-- **Machine Learning**: Pre-trained models for credit risk prediction.
-- **Database**: Stores credit risk data and model metadata.
+## Key Components
+- **Backend**: Flask-based REST API with multiple ML model support (XGBoost, LightGBM, CatBoost, etc.)
+- **Frontend**: Lightweight JavaScript-based user interface
+- **Machine Learning**: Multiple pre-trained models with MLflow tracking and versioning
+- **Database**: SQLite database for credit risk data and model metadata
 
 ## Setup
 ### Prerequisites
 - Python 3.8+
-- Node.js 16+
-- npm or yarn
+- Node.js (for http-server)
+- npm
 
 ### Backend
 1. Navigate to the backend directory:
@@ -72,9 +89,9 @@ shared/
    ```bash
    cd frontend
    ```
-2. Install dependencies:
+2. Install http-server globally (if not already installed):
    ```bash
-   npm install
+   npm install -g http-server
    ```
 3. Start the development server:
    ```bash
@@ -85,8 +102,17 @@ shared/
 - Access the frontend at `http://localhost:3001`.
 - Use the backend API at `http://localhost:5000`.
 
-## Notebooks
-- `credit-risk-assesment.ipynb`: Contains exploratory data analysis and model training steps.
+## Machine Learning Models
+- **Jupyter Notebook**: `credit-risk-assesment.ipynb` contains exploratory data analysis and model training
+- **MLflow Integration**: Model versioning and experiment tracking in `mlruns/` directory
+- **Supported Models**: AdaBoost, Bagging Classifier, Decision Tree, Extra Trees, Gradient Boosting, K-Neighbors, Logistic Regression, Random Forest, SVC, XGBoost
+
+## Database Setup
+Run the database seeding script to initialize the database:
+```bash
+cd database/scripts
+python seed.py
+```
 
 ## Contributing
 1. Fork the repository.
